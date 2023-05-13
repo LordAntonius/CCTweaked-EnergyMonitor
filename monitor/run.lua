@@ -42,7 +42,7 @@ while true do
     end
 
     graph.writeAt(1, 3, graph.FEPtyPrint(max), colors.white)
-    graph.writeAt(1, graph.screen.height-1, graph.FEPtyPrint(max), colors.white)
+    graph.writeAt(1, graph.screen.height-1, graph.FEPtyPrint(min), colors.white)
 
     graph.drawPoints(tVal, min, max, 11, nbValues, 3, graph.screen.height-2)
 

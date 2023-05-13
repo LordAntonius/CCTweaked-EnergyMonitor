@@ -32,7 +32,7 @@ while true do
     --get min and max
     local min = tVal[0]
     local max = tVal[0]
-    for k,v in tVal do
+    for k,v in pairs(tVal) do
         if v < min then
             min = v
         end 

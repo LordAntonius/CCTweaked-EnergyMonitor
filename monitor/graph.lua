@@ -49,4 +49,8 @@ local function writeAt(x,y, value, colour)
     monitor.setTextColour(tmpColour)
 end
 
-return { screen = screen, drawVLine = drawVLine, drawHLine = drawHLine, FEPtyPrint = FEPtyPrint, writeAt = writeAt}
+local function drawPoints(t, min, max, x0, x1, y0, y1)
+
+end
+
+return { screen = screen, drawVLine = drawVLine, drawHLine = drawHLine, FEPtyPrint = FEPtyPrint, writeAt = writeAt, drawPoints = drawPoints}

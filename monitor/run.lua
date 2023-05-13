@@ -7,7 +7,7 @@ local graph = require("graph")
 
 
 local nbValues = math.floor(graph.screen.width*2/3)
-nbValues = nbValues - 5
+nbValues = nbValues - 10
 
 local tVal = {}
 for i = 1, nbValues do
@@ -27,11 +27,11 @@ while true do
     table.remove(tVal, 1)
 
     -- draw graph
-    graph.drawVLine(5, 3, graph.screen.height - 4, "0")
-    graph.drawHLine(5, graph.screen.height-1 , nbValues+1, "0")
+    graph.drawVLine(10, 3, graph.screen.height - 4, "0")
+    graph.drawHLine(10, graph.screen.height-1 , nbValues+1, "0")
     --get min and max
-    local min = tVal[0]
-    local max = tVal[0]
+    local min = tVal[1]
+    local max = tVal[1]
     for k,v in pairs(tVal) do
         if v < min then
             min = v
@@ -41,7 +41,10 @@ while true do
         end
     end
 
-    print("Min ".. min .. " Max " .. max)
+    graph.writeAt(1, 3, graph.FEPtyPrint(max), colors.white)
+    graph.writeAt(1, graph.screen.height-1, graph.FEPtyPrint(max), colors.white)
+
+    graph.drawPoints(tVal, min, max, 11, nbValues, 3, graph.screen.height-2)
 
     -- draw right battery
     local w1 = nbValues+18

@@ -65,10 +65,10 @@ while true do
     -- Write current speed
     local speed = (tVal[nbValues] - tVal[nbValues-1]) / (20*(interval+3))
     local speedColor = colors.green
-    local speedSign = "+ "
+    local speedSign = "+"
     if speed < 0 then
         speedColor = colors.red
-        speedSign = "- "
+        speedSign = ""
     end
     graph.writeAt(nbValues+1, 2, speedSign .. graph.FEPtyPrint(speed) .. "/t", speedColor)
 

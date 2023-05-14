@@ -51,7 +51,9 @@ end
 
 local graphVal = {}
 local function init(nbVal)
-    table.insert(graphVal, 0)
+    for i = 1, nbValues do
+        table.insert(graphVal, 0)
+    end
 end
 
 local function drawPoints(t, min, max, x0, x1, y0, y1)

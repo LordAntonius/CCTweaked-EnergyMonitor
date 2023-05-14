@@ -42,7 +42,7 @@ local function FEPtyPrint(value)
 end
 
 local function writeAt(x,y, value, colour)
-    tmpColour = monitor.getTextColour()
+    local tmpColour = monitor.getTextColour()
     monitor.setTextColour(colour)
     monitor.setCursorPos(x,y)
     monitor.write(value)
@@ -50,7 +50,17 @@ local function writeAt(x,y, value, colour)
 end
 
 local function drawPoints(t, min, max, x0, x1, y0, y1)
-
+    local graphScale = y1 - y0
+    local yScale = max - min
+    local tmpColour = monitor.getTextColour()
+    monitor.setTextColour(colors.lightGray)
+    for k,v in pairs(t) do
+        local y = y1 - ((v - min)/yscale)*graphScale
+        local x = x0 + k
+        monitor.setCursorPos(x,y)
+        monitor.write("X")
+    end
+    monitor.setTextColour(tmpColour)
 end
 
 return { screen = screen, drawVLine = drawVLine, drawHLine = drawHLine, FEPtyPrint = FEPtyPrint, writeAt = writeAt, drawPoints = drawPoints}

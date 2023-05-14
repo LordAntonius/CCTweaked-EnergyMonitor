@@ -49,14 +49,25 @@ local function writeAt(x,y, value, colour)
     monitor.setTextColour(tmpColour)
 end
 
+local graphVal = {}
+local function init(nbVal)
+    table.insert(graphVal, 0)
+end
+
 local function drawPoints(t, min, max, x0, x1, y0, y1)
     local graphScale = y1 - y0
     local yScale = max - min
     local tmpColour = monitor.getTextColour()
     monitor.setTextColour(colors.lightGray)
     for k,v in pairs(t) do
+        -- erase last value
+        monitor.setCursorPos(x0+k, graphVal[k])
+        monitor.write(" ")
+
+        -- write new value
         local y = y1 - ((v - min)/yScale)*graphScale
         local x = x0 + k
+        graphVal[k] = y
         monitor.setCursorPos(x,y)
         monitor.write("X")
     end
@@ -67,4 +78,4 @@ local function clear()
     monitor.clear()
 end
 
-return { screen = screen, drawVLine = drawVLine, drawHLine = drawHLine, FEPtyPrint = FEPtyPrint, writeAt = writeAt, drawPoints = drawPoints, clear = clear}
+return { screen = screen, drawVLine = drawVLine, drawHLine = drawHLine, FEPtyPrint = FEPtyPrint, writeAt = writeAt, drawPoints = drawPoints, clear = clear, init = init}

@@ -13,6 +13,7 @@ local tVal = {}
 for i = 1, nbValues do
     table.insert(tVal, 0)
 end
+graph.init(nbValues)
 
 while true do
     -- Get Cur Values
@@ -25,9 +26,6 @@ while true do
     -- Insert in tab
     table.insert(tVal, nbValues+1, curEnergy)
     table.remove(tVal, 1)
-
-    -- clear
-    graph.clear()
 
     -- draw graph
     graph.drawVLine(10, 3, graph.screen.height - 4, "0")

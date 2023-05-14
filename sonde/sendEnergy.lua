@@ -35,5 +35,5 @@ while true do
         print("Unknown command")
         modem.transmit(sendChan, recChan, nil)
     end
-    sleep(interval)
+    -- sleep(interval)
 end

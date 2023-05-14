@@ -73,6 +73,7 @@ while true do
     end
     graph.writeAt(nbValues+1, 2, speedSign .. graph.FEPtyPrint(speed) .. "/t", speedColor)
 
-    
+    -- write date
+    graph.writeAt(nbValues+5, graph.screen.height-1, os.date(),color.white)
     sleep(interval)
 end

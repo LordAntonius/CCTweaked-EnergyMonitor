@@ -55,7 +55,7 @@ local function drawPoints(t, min, max, x0, x1, y0, y1)
     local tmpColour = monitor.getTextColour()
     monitor.setTextColour(colors.lightGray)
     for k,v in pairs(t) do
-        local y = y1 - ((v - min)/yscale)*graphScale
+        local y = y1 - ((v - min)/yScale)*graphScale
         local x = x0 + k
         monitor.setCursorPos(x,y)
         monitor.write("X")
@@ -63,4 +63,8 @@ local function drawPoints(t, min, max, x0, x1, y0, y1)
     monitor.setTextColour(tmpColour)
 end
 
-return { screen = screen, drawVLine = drawVLine, drawHLine = drawHLine, FEPtyPrint = FEPtyPrint, writeAt = writeAt, drawPoints = drawPoints}
+local function clear()
+    monitor.clear()
+end
+
+return { screen = screen, drawVLine = drawVLine, drawHLine = drawHLine, FEPtyPrint = FEPtyPrint, writeAt = writeAt, drawPoints = drawPoints, clear = clear}

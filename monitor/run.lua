@@ -15,6 +15,8 @@ for i = 1, nbValues do
 end
 
 while true do
+    graph.clear()
+
     -- Get Cur Values
     local curEnergy = probe.getEnergy()
     local curEnergyStr = graph.FEPtyPrint(curEnergy)

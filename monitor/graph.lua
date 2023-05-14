@@ -51,7 +51,7 @@ end
 
 local graphVal = {}
 local function init(nbVal)
-    for i = 1, nbValues do
+    for i = 1, nbVal do
         table.insert(graphVal, 0)
     end
 end

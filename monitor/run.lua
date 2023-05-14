@@ -15,8 +15,6 @@ for i = 1, nbValues do
 end
 
 while true do
-    graph.clear()
-
     -- Get Cur Values
     local curEnergy = probe.getEnergy()
     local curEnergyStr = graph.FEPtyPrint(curEnergy)
@@ -27,6 +25,9 @@ while true do
     -- Insert in tab
     table.insert(tVal, nbValues+1, curEnergy)
     table.remove(tVal, 1)
+
+    -- clear
+    graph.clear()
 
     -- draw graph
     graph.drawVLine(10, 3, graph.screen.height - 4, "0")
